@@ -11,3 +11,9 @@ http://localhost:3000
 veya
 127.0.0.1:3000
 şeklinde erişebilirsin
+
+
+git e atmak için
+1- git menusunde + a bas dosyaları stage e atacaktır
+2- commit butonuna bas, ustundeki açıklama kısmını doldur once
+3- push yada sync yap
