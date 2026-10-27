@@ -1,0 +1,13 @@
+npm init -y : npm çalıştırmak için ortam oluşturur
+npm install : package.json daki dependency leri projene indirmeni sağlar, node_modules e atar, sonra kullanabilirsin
+
+node server.js ile uygulamanı çalıştıracaksın
+ctrl + c ile çalışan uygulamayı durdursun 
+(bu aşağıdaki senin projede yok)
+npm run dev : uygulaman ayağa kalkar ve browserdan görüntüleyebilirsin
+
+server.js : uygulamayı çalıştırman için server ayağa kaldırır : 3000 portu yazılmış orada çalışır
+http://localhost:3000
+veya
+127.0.0.1:3000
+şeklinde erişebilirsin
