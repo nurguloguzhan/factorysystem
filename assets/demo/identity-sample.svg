@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="440" viewBox="0 0 720 440">
+  <rect width="720" height="440" rx="24" fill="#f3f6f4"/>
+  <rect x="18" y="18" width="684" height="404" rx="20" fill="#fff" stroke="#cbd8cf" stroke-width="3"/>
+  <rect x="18" y="18" width="684" height="72" rx="20" fill="#216b4d"/>
+  <text x="44" y="63" fill="#fff" font-family="Arial" font-size="26" font-weight="700">ORNEK KIMLIK BELGESI</text>
+  <rect x="42" y="112" width="636" height="44" rx="8" fill="#fff0e5"/>
+  <text x="56" y="141" fill="#a64d12" font-family="Arial" font-size="20" font-weight="700">DEMO - GERCEK KISI VE BELGE DEGILDIR</text>
+  <rect x="48" y="180" width="150" height="176" rx="12" fill="#e6eee8"/>
+  <circle cx="123" cy="235" r="38" fill="#9bb5a2"/>
+  <path d="M66 338c8-48 106-48 114 0" fill="#9bb5a2"/>
+  <text x="230" y="207" fill="#697d72" font-family="Arial" font-size="16">AD SOYAD</text>
+  <text x="230" y="238" fill="#1d2b25" font-family="Arial" font-size="24" font-weight="700">DEMO KULLANICISI</text>
+  <text x="230" y="283" fill="#697d72" font-family="Arial" font-size="16">BELGE NUMARASI</text>
+  <text x="230" y="314" fill="#1d2b25" font-family="Arial" font-size="22">DEMO-0000</text>
+  <text x="360" y="390" fill="#a64d12" font-family="Arial" font-size="24" font-weight="700">ORNEK GORSELDIR</text>
+</svg>

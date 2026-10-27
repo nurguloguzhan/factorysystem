@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="tr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="theme-color" content="#f4f6f4" />
+		<meta name="description" content="Fabrika hammadde kabul ve boşaltım sıra yönetimi." />
+		<title>Hammadde Kabul | Yönetim Paneli</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" href="styles.css" />
+		<script src="app.js" defer></script>
+	</head>
+	<body>
+		<div class="app-shell">
+			<aside class="sidebar" id="sidebar">
+				<a class="brand" href="#genel-bakis" aria-label="Hammadde Kabul ana sayfa">
+					<span class="brand-mark" aria-hidden="true">
+						<svg viewBox="0 0 32 32" fill="none"><path d="M5 25V12.5L16 6l11 6.5V25H5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M11 25v-8h10v8M10 12h.01M16 12h.01M22 12h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+					</span>
+					<span class="brand-copy"><strong>HAMMADDE</strong><small>KABUL &amp; BOŞALTIM</small></span>
+				</a>
+
+				<div class="sidebar-label">ÇALIŞMA ALANI</div>
+				<nav class="primary-nav" aria-label="Ana menü">
+					<button class="nav-item is-active" type="button" data-view="overview">
+						<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg>
+						<span>Genel Bakış</span>
+					</button>
+					<button class="nav-item" type="button" data-view="queue">
+						<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11M3 12h18M3 17h14"/><circle cx="18" cy="7" r="2"/><circle cx="7" cy="17" r="2"/></svg>
+						<span>Araç Sırası</span><span class="nav-count" id="queue-nav-count">4</span>
+					</button>
+					<button class="nav-item" type="button" data-view="scale">
+						<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v3M5 6h14M7 6l-4 8h8L7 6ZM17 6l-4 8h8l-4-8ZM5 21h14M8 18h8v3H8z"/></svg>
+						<span>Kantar ve Tartım</span>
+					</button>
+					<button class="nav-item" type="button" data-view="unloading">
+						<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17h18M5 17V9l7-5 7 5v8M9 17v-5h6v5M12 4v4m-2-2 2 2 2-2"/></svg>
+						<span>Boşaltım İşlemleri</span>
+					</button>
+					<button class="nav-item" type="button" data-view="completed">
+						<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M6.1 9A7 7 0 0 1 18 6.5L20 12M4 12l2 5.5A7 7 0 0 0 17.9 15"/></svg>
+						<span>Tamamlanan İşlemler</span>
+					</button>
+				</nav>
+
+				<div class="sidebar-bottom">
+					<div class="site-status"><span class="status-light"></span><span><strong>Sistem hazır</strong><small>Yerel önizleme modu</small></span></div>
+					<button class="nav-item logout-button" type="button" data-view="logout">
+						<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 17l5-5-5-5M15 12H3M12 3h6a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-6"/></svg>
+						<span>Çıkış</span>
+					</button>
+					<div class="user-profile">
+						<span class="avatar">AY</span><span class="user-copy"><strong>Ahmet Yılmaz</strong><small>Yönetici</small></span>
+						<button class="more-button" type="button" aria-label="Kullanıcı seçenekleri"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></svg></button>
+					</div>
+				</div>
+			</aside>
+
+			<main class="main-content">
+				<header class="topbar">
+					<button class="icon-button menu-toggle" id="menu-toggle" type="button" aria-label="Menüyü aç veya kapat">
+						<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+					</button>
+					<div class="breadcrumb"><span>Operasyon</span><span class="breadcrumb-divider">/</span><strong id="breadcrumb-current">Genel Bakış</strong></div>
+					<div class="topbar-actions">
+						<div class="facility-chip"><span class="facility-dot"></span><span>Marmara Tesisi</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></div>
+						<span class="topbar-divider"></span>
+						<span class="current-date" id="current-date"></span>
+						<nav class="assistant-links" aria-label="Yapay zeka araçları">
+							<a class="assistant-link" href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer" aria-label="Chat'i yeni sekmede aç">
+								<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5H5l1.8-3A7.5 7.5 0 1 1 20 11.5Z"/><path d="M8.5 11.5h7M8.5 14.5h4"/></svg>
+								<span>Chat</span>
+							</a>
+							<a class="assistant-link assistant-link-codex" href="https://chatgpt.com/codex" target="_blank" rel="noopener noreferrer" aria-label="Codex'i yeni sekmede aç">
+								<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.2 5.8L20 11l-5.8 2.2L12 19l-2.2-5.8L4 11l5.8-2.2L12 3Z"/><path d="m19 15 .9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9L19 15Z"/></svg>
+								<span>Codex</span>
+							</a>
+						</nav>
+						<button class="icon-button notification-button" type="button" aria-label="Bildirimler">
+							<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg><i></i>
+						</button>
+					</div>
+				</header>
+
+				<div class="page-content">
+					<section class="page-heading">
+						<div><p class="eyebrow">CUMA, 23 EKİM 2026 <span class="eyebrow-line"></span> VARDİYA 1</p><h1 id="page-title">Genel Bakış</h1><p class="page-subtitle" id="page-subtitle">Hammadde kabul operasyonlarının güncel durumu.</p></div>
+						<button class="primary-button" id="add-vehicle-button" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span>Araç Kaydı Oluştur</span></button>
+					</section>
+
+					<section class="stats-grid" aria-label="Günlük operasyon özeti">
+						<article class="stat-card stat-waiting"><div class="stat-top"><span class="stat-label">Bekleyen araç</span><span class="stat-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v10H3zM14 10h4l3 3v4h-7zM7 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM18 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/></svg></span></div><div class="stat-value-row"><strong class="stat-value" id="waiting-count">4</strong><span class="stat-unit">araç</span></div><div class="stat-foot"><span class="trend-dot"></span><span>Sırada ve çağrı bekliyor</span></div></article>
+						<article class="stat-card stat-scale"><div class="stat-top"><span class="stat-label">Kantardaki araç</span><span class="stat-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v4M5 7h14M7 7l-4 8h8L7 7ZM17 7l-4 8h8l-4-8ZM7 21h10M9 18h6v3H9z"/></svg></span></div><div class="stat-value-row"><strong class="stat-value" id="scale-count">1</strong><span class="stat-unit">araç</span></div><div class="stat-foot"><span class="stat-foot-neutral">Aktif tartımda</span></div></article>
+						<article class="stat-card stat-unloading"><div class="stat-top"><span class="stat-label">Boşaltımdaki araç</span><span class="stat-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19h16M6 19V9l6-4 6 4v10M9 19v-6h6v6M12 5v7m-3-3 3 3 3-3"/></svg></span></div><div class="stat-value-row"><strong class="stat-value" id="unloading-count">1</strong><span class="stat-unit">araç</span></div><div class="stat-foot"><span class="stat-foot-neutral">Sahada işlem sürüyor</span></div></article>
+						<article class="stat-card stat-completed"><div class="stat-top"><span class="stat-label">Bugün tamamlanan</span><span class="stat-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/><circle cx="12" cy="12" r="9"/></svg></span></div><div class="stat-value-row"><strong class="stat-value" id="completed-count">2</strong><span class="stat-unit">işlem</span></div><div class="stat-foot"><span class="trend-up">+2</span><span>vardiya başlangıcından beri</span></div></article>
+					</section>
+
+					<section class="queue-panel" aria-labelledby="queue-title">
+						<div class="panel-heading">
+							<div class="panel-title-group"><div class="panel-title-line"><h2 id="queue-title">Aktif Araç Sırası</h2><span class="live-indicator"><i></i> CANLI</span></div><p id="table-description">Tesise giriş yapan araçların anlık operasyon durumu</p></div>
+							<div class="table-tools">
+								<label class="search-box"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg><input id="search-input" type="search" placeholder="Plaka veya şoför ara" aria-label="Plaka veya şoför ara" /><kbd>⌘ K</kbd></label>
+								<button class="filter-button" id="filter-button" type="button" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M7 12h10m-7 5h4"/></svg><span>Filtrele</span><span class="filter-count" id="filter-count" hidden>0</span></button>
+							</div>
+						</div>
+						<div class="table-tabs" id="table-tabs" aria-label="Araç durumu filtresi">
+							<button class="tab-button is-selected" type="button" data-filter="all">Tümü <span id="all-tab-count">6</span></button>
+							<button class="tab-button" type="button" data-filter="waiting">Bekleyen <span id="waiting-tab-count">4</span></button>
+							<button class="tab-button" type="button" data-filter="scale">Kantar <span id="scale-tab-count">1</span></button>
+							<button class="tab-button" type="button" data-filter="unloading">Boşaltım <span id="unloading-tab-count">1</span></button>
+						</div>
+						<div class="table-wrap">
+							<table>
+								<thead>
+									<tr><th>PLAKA</th><th>ŞOFÖR</th><th>SEVKİYAT NO</th><th>SIRA NO</th><th>DURUM</th><th>TAHMİNİ BEKLEME</th><th class="action-heading">İŞLEM</th></tr>
+								</thead>
+								<tbody id="vehicle-table-body">
+									<tr>
+										<td>34 ABC 123</td>
+										<td>Kadir Yılmaz</td>
+										<td>SH-2026-0841</td>
+										<td>01</td>
+										<td>Sırada</td>
+										<td>Yaklaşık 25 dk</td>
+										<td><button type="button">Detay</button></td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="empty-state" id="empty-state" hidden><span class="empty-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg></span><strong>Sonuç bulunamadı</strong><span>Arama veya filtre ölçütlerini değiştirebilirsiniz.</span></div>
+						</div>
+						<footer class="table-footer"><span id="table-summary">6 araç gösteriliyor</span><span class="refresh-note"><i></i> Son güncelleme: <strong id="last-updated">az önce</strong></span></footer>
+					</section>
+					<footer class="page-footer"><span>© 2026 Hammadde Kabul Yönetim Sistemi</span><span><i></i> Tüm operasyonlar normal</span></footer>
+				</div>
+			</main>
+		</div>
+
+		<div class="modal-backdrop" id="modal-backdrop" hidden>
+			<section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+				<div class="modal-heading"><div><p class="eyebrow">ARAÇ KAYDI</p><h2 id="modal-title">Araç detayları</h2></div><button class="icon-button modal-close" id="modal-close" type="button" aria-label="Pencereyi kapat"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div>
+				<div class="modal-content" id="modal-content"></div>
+				<div class="modal-actions" id="modal-actions"></div>
+			</section>
+		</div>
+		<div class="toast" id="toast" role="status" aria-live="polite"></div>
+	</body>
+</html>

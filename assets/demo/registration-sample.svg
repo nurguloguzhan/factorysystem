@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="440" viewBox="0 0 720 440">
+  <rect width="720" height="440" rx="24" fill="#f3f6f4"/>
+  <rect x="18" y="18" width="684" height="404" rx="20" fill="#fff" stroke="#cbd8cf" stroke-width="3"/>
+  <rect x="18" y="18" width="684" height="72" rx="20" fill="#315e9b"/>
+  <text x="44" y="63" fill="#fff" font-family="Arial" font-size="26" font-weight="700">ORNEK ARAC RUHSATI</text>
+  <rect x="42" y="112" width="636" height="44" rx="8" fill="#fff0e5"/>
+  <text x="56" y="141" fill="#a64d12" font-family="Arial" font-size="20" font-weight="700">DEMO - GERCEK ARAC BELGESI DEGILDIR</text>
+  <text x="54" y="207" fill="#697d72" font-family="Arial" font-size="16">PLAKA</text>
+  <text x="54" y="239" fill="#1d2b25" font-family="Arial" font-size="26" font-weight="700">00 DEMO 000</text>
+  <text x="54" y="292" fill="#697d72" font-family="Arial" font-size="16">ARAC SAHIBI</text>
+  <text x="54" y="324" fill="#1d2b25" font-family="Arial" font-size="22" font-weight="700">ORNEK KAYIT</text>
+  <text x="420" y="390" fill="#a64d12" font-family="Arial" font-size="24" font-weight="700">ORNEK GORSELDIR</text>
+</svg>
